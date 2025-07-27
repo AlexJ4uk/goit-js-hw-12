@@ -41,19 +41,27 @@ span b {
 }
 
 button {
-    margin: 0;
-    border-radius: 8px;
-    padding: 8px 16px;
-    width: 75px;
-    height: 40px;
-    font-weight: 500;
-    background-color: #4e75ff;
-    color: #ffffff;
+        border-radius: 8px;
+        padding: 8px 16px;
+        height: 40px;
+        font-weight: 500;
+        background-color: #4e75ff;
+        color: #ffffff;
 }
-
 
 button:hover {
     background-color: #6c8cff;
+}
+
+.search-btn {
+    margin: 0;
+    width: 75px;
+}
+
+.load-more-btn {
+    display: block;
+    margin: 32px auto;
+    width: 125px;
 }
 
 input {
@@ -79,6 +87,12 @@ input:focus {
     color: #2e2f42;
 }
 
+.pagination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .loader {
     width: 48px;
     height: 48px;
@@ -88,7 +102,6 @@ input:focus {
     background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, #ff3d00 100%);
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-    justify-content: center;
     margin: 20px auto;
 }
 
