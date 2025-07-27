@@ -44,3 +44,10 @@ export function hideLoader() {
   loader.classList.remove('is-active');
 }
 
+export function showLoadMoreButton() {
+
+}
+
+export function hideLoadMoreButton() {
+    
+}

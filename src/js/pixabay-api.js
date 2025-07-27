@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_KEY = "51378434-708cb4473fdf89ff203a412e8";
 
-export function getImagesByQuery(query) {
+export function getImagesByQuery(query, page) {
     return axios('https://pixabay.com/api/', {
         params: {
             key: API_KEY,
