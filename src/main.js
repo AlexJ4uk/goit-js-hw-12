@@ -33,7 +33,6 @@ async function handleSubmit(event) {
 
     try {
         const imagesResults = await getImagesByQuery(query, page);
-        hideLoader();
 
         if (imagesResults.hits.length === 0) {
             return showToast('error', 'Sorry, there are no images matching your search query.');
@@ -44,11 +43,15 @@ async function handleSubmit(event) {
             showLoadMoreButton();
         }
 
-        form.elements['search-text'].value = '';
+        if (imagesResults.totalHits <= page * 15) {
+            return showToast('info', "You've reached the end of search results.");
+        }
     }
+
     catch (error) {
         return showToast('error', 'Failed to fetch images. Please try again later.');
     }
+
     finally {
         hideLoader();
     }
@@ -75,8 +78,11 @@ async function onLoadBtn() {
         }
 
         if (data.totalHits <= page * 15) {
-            hideLoadMoreButton();
-            return showToast('info', "You've reached the end of search results.");
+            showToast('info', "You've reached the end of search results.");
+            setTimeout(() => {
+        hideLoadMoreButton();
+            }, 1000);
+            return;
         }
         else {
             showLoadMoreButton();
